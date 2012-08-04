@@ -10,11 +10,18 @@ class mouse
 {
 public:
     mouse();
+    void draw_image(SDL_Surface* surface);
+    SDL_Rect get_pos();
 private:
     // load in image of the mouse
     SDL_Surface* mmouse;
 
+    // position (above left corner) of the
+    int mx;
+    int my;
 
 };
+
+
 
 #endif // MOUSE_H

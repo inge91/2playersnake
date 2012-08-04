@@ -60,3 +60,55 @@ SDL_Surface *load_image( std::string filename )
 
 
 }
+
+
+// detects if two squares are collided,
+// Returns true if there is a collision, else falls
+bool detect_collision(SDL_Rect a,
+                         SDL_Rect b)
+{
+    // all x and y values of all rectangle sides
+    int leftSide1 = a.x;
+    int rightSide1 = a.x + a.w;
+    int upSide1 = a.y;
+    int downSide1 = a.y + a.h;
+
+    int leftSide2 = b.x ;
+    int rightSide2 =  b.x + b.w;
+    int upSide2 = b.y;
+    int downSide2 = b.y + b.h;
+
+
+    // if statemens detect no collisions
+    if(downSide1 <= upSide2)
+    {
+        return false;
+    }
+
+    if(rightSide1 <= leftSide2)
+    {
+        return false;
+    }
+
+    if( upSide1 >= downSide2)
+    {
+        return false;
+    }
+
+    if(leftSide1 >= rightSide2)
+    {
+        return false;
+    }
+
+    // collission has been detected
+    return true;
+}
+
+
+
+
+
+
+
+
+

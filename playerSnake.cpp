@@ -52,8 +52,8 @@ playerSnake::playerSnake()
     SDL_Rect tailLoc;
     headLoc.x = 30;
     headLoc.y = 30;
-    headLoc.w = 60;
-    headLoc.h = 60;
+    headLoc.w = 30;
+    headLoc.h = 30;
     tailLoc.x = 0;
     tailLoc.y = 30;
     tailLoc.w = 30;
@@ -178,16 +178,44 @@ void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
     }
 
     // Remove position of tail, but only if the snake moves
-    if(mlast_press != NONE){
+    if(mlast_press != NONE && mIsGrowing == false){
         mparts_locations.erase(mparts_locations.begin()+ mparts_locations.size()-1);
 
         mdirections.erase(mdirections.begin()+ mdirections.size()-1);
-
+        mIsGrowing = true;
     }
-
-
     // draw the snake
     draw_snake(surface);
+
+}
+
+// Detects if the snake has collided with a wall.
+bool playerSnake::wall_collision(){
+    SDL_Rect head = mparts_locations.at(0);
+    if(head.x < 0 || head.y < 0 || head.w > 640 || head.h > 480){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+// Touched the mouse?
+bool playerSnake::touched_mouse(mouse myMouse){
+    SDL_Rect mouseLoc =myMouse.get_pos();
+    SDL_Rect head = mparts_locations.at(0);
+
+    return detect_collision(mouseLoc, head);
+}
+
+// sets mISGrowing depending on if the mouse is catched
+void playerSnake::grow_snake(mouse myMouse){
+    if(touched_mouse(myMouse)){
+        mIsGrowing = true;
+    }
+    else{
+        mIsGrowing = false;
+    }
 
 }
 

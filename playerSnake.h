@@ -6,7 +6,7 @@
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
 #include "sdl_functions.h"
-
+#include "mouse.h"
 
 using namespace std;
 
@@ -16,7 +16,8 @@ public:
     playerSnake();
     std::vector <SDL_Rect> return_partLocation();
     void make_move(SDL_Event event, SDL_Surface *surface);
-
+    bool wall_collision();
+    void grow_snake(mouse myMouse);
 
 private:
     // the image holders
@@ -36,6 +37,9 @@ private:
 
     int mlast_press;
 
+    // Tracks if the snake is supposed to grow
+    bool mIsGrowing;
+
     // Stores all the bodypart locations of the playersnake
     std::vector <SDL_Rect>  mparts_locations;
 
@@ -46,6 +50,7 @@ private:
     std::vector <int> mdirections;
 
     void draw_snake(SDL_Surface* surface);
+    bool touched_mouse(mouse myMouse);
 
 };
 

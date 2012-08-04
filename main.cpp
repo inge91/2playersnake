@@ -5,6 +5,7 @@
 #include "sdl_functions.h"
 #include "playerSnake.h"
 #include "timer.h"
+#include "mouse.h"
 
 using namespace std;
 
@@ -52,7 +53,7 @@ int main(int argc, char* args[])
 
     // Create an instance of the playersnake
     playerSnake mySnake;
-
+    mouse myMouse;
 
     // Updating the screen
     SDL_Flip(screen);
@@ -64,6 +65,7 @@ int main(int argc, char* args[])
     while( quit == false){
         fps.start();
         int x,y;
+
         for(x = 0; x < 2000; x++)
         {
             for(y = 0; y < 20000; y++)
@@ -72,13 +74,11 @@ int main(int argc, char* args[])
         }
         // while there is an event to handle
         fill_background(background, screen);
+        myMouse.draw_image(screen);
         mySnake.make_move(event, screen);
-        while(SDL_PollEvent(&event)){        
-
-
-
-
-
+        myMouse.draw_image(screen);
+        mySnake.grow_snake(myMouse);
+        while(SDL_PollEvent(&event)){
             frame++;
             //If we want to cap the frame rate
             if( ( cap == true ) && ( fps.get_ticks() < 1000 / 20 ) )
@@ -93,6 +93,7 @@ int main(int argc, char* args[])
                 quit = true;
             }
         }
+
     }
 
 
