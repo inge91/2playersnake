@@ -16,7 +16,7 @@ public:
     playerSnake();
     std::vector <SDL_Rect> return_partLocation();
     void make_move(SDL_Event event, SDL_Surface *surface);
-    bool wall_collision();
+    bool wall_collision(SDL_Surface* screen);
     bool grow_snake(mouse myMouse);
     void only_respond(SDL_Event event, SDL_Surface *surface);
     bool touched_self();

@@ -34,9 +34,10 @@ int main(int argc, char* args[])
     }
 
     // Set up the screen
-    screen = SDL_SetVideoMode(640, 480, 32,
+    //screen = SDL_SetVideoMode(640, 480, 32,
+    //        SDL_SWSURFACE);
+    screen = SDL_SetVideoMode(1000,700 , 32,
             SDL_SWSURFACE);
-
     // Check for errors
     if(screen == NULL){
         return 1;
@@ -68,7 +69,7 @@ int main(int argc, char* args[])
     while( quit == false){
         fps.start();
         int x,y;
-        if(!mySnake.touched_self())
+        if(!mySnake.touched_self()&& !mySnake.wall_collision(screen))
         {
             for(x = 0; x < 2000; x++)
             {
