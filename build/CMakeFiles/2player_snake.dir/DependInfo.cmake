@@ -4,6 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/inge/Projects/Games/2player_snake/deadscreen.cpp" "/home/inge/Projects/Games/2player_snake/build/CMakeFiles/2player_snake.dir/deadscreen.cpp.o"
   "/home/inge/Projects/Games/2player_snake/main.cpp" "/home/inge/Projects/Games/2player_snake/build/CMakeFiles/2player_snake.dir/main.cpp.o"
   "/home/inge/Projects/Games/2player_snake/mouse.cpp" "/home/inge/Projects/Games/2player_snake/build/CMakeFiles/2player_snake.dir/mouse.cpp.o"
   "/home/inge/Projects/Games/2player_snake/playerSnake.cpp" "/home/inge/Projects/Games/2player_snake/build/CMakeFiles/2player_snake.dir/playerSnake.cpp.o"

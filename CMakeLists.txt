@@ -21,4 +21,4 @@ link_libraries (
     )
 
 add_executable(2player_snake
-    main.cpp playerSnake.cpp sdl_functions.cpp timer.cpp mouse.cpp)
+    main.cpp playerSnake.cpp sdl_functions.cpp timer.cpp mouse.cpp deadscreen.cpp)

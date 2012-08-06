@@ -74,6 +74,8 @@
          </MakeCommands>
       </Target>
       </Build>
+      <Unit filename="/home/inge/Projects/Games/2player_snake/deadscreen.cpp">
+      </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/main.cpp">
       </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/mouse.cpp">
@@ -83,6 +85,8 @@
       <Unit filename="/home/inge/Projects/Games/2player_snake/sdl_functions.cpp">
       </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/timer.cpp">
+      </Unit>
+      <Unit filename="/home/inge/Projects/Games/2player_snake/deadscreen.h">
       </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/mouse.h">
       </Unit>

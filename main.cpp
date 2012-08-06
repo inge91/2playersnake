@@ -6,6 +6,7 @@
 #include "playerSnake.h"
 #include "timer.h"
 #include "mouse.h"
+#include "deadscreen.h"
 
 using namespace std;
 
@@ -54,6 +55,8 @@ int main(int argc, char* args[])
     // Create an instance of the playersnake
     playerSnake mySnake;
     mouse myMouse;
+    deadScreen myDead(screen);
+
 
     // Updating the screen
     SDL_Flip(screen);
@@ -65,19 +68,61 @@ int main(int argc, char* args[])
     while( quit == false){
         fps.start();
         int x,y;
-
-        for(x = 0; x < 2000; x++)
+        if(!mySnake.touched_self())
         {
-            for(y = 0; y < 20000; y++)
+            for(x = 0; x < 2000; x++)
             {
+                for(y = 0; y < 20000; y++)
+                {
+                 // mySnake.only_respond(event, background);
+
+                //  myMouse.draw_image(screen);
+
+                }
+            }
+            // while there is an event to handle
+            fill_background(background, screen);
+            myMouse.draw_image(screen);
+            mySnake.make_move(event, screen);
+            myMouse.draw_image(screen);
+            if(mySnake.grow_snake(myMouse)){
+                myMouse.respawn();
             }
         }
-        // while there is an event to handle
-        fill_background(background, screen);
-        myMouse.draw_image(screen);
-        mySnake.make_move(event, screen);
-        myMouse.draw_image(screen);
-        mySnake.grow_snake(myMouse);
+        else{
+
+            myDead.draw_screen(screen, event);
+            while(SDL_PollEvent(&event)){
+                myDead.draw_screen(screen, event);
+                if(event.key.keysym.sym == SDLK_RETURN){
+                    if(myDead.exit()){
+                    quit = true;
+                    }
+                    else{
+
+                    mySnake.respawn();
+                    myMouse.respawn();
+
+                    break;
+                    }
+
+
+                break;
+                }
+                if(event.type == SDL_QUIT )
+                {
+                    // Quit the loop
+                    quit = true;
+                    break;
+                }
+
+
+            }
+
+        }
+
+
+
         while(SDL_PollEvent(&event)){
             frame++;
             //If we want to cap the frame rate
@@ -92,6 +137,7 @@ int main(int argc, char* args[])
                 // Quit the loop
                 quit = true;
             }
+
         }
 
     }

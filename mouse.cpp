@@ -3,7 +3,7 @@
 #include <ctime>
 
 // Mouse class makes an instant of a mouse that has to be eaten by the snake
-
+// TODO: let mouse spawn somewhere else than on the snake
 mouse::mouse()
 {
     mmouse = load_image("../imgs/mouse.bmp");
@@ -29,18 +29,16 @@ SDL_Rect mouse::get_pos(){
     loc.y = my;
     loc.w = mmouse->w;
     loc.h = mmouse->h;
-    std::cout<<"position mouse";
-    std::cout<<"\n";
-    std::cout<<loc.x;
-    std::cout<<"\n";
-    std::cout<<loc.y;
-    std::cout<<"\n";
-    std::cout<<loc.w;
-    std::cout<<"\n";
-    std::cout<<loc.h;
-    std::cout<<"\n";
-    std::cout<<"\n";
+
     return loc;
+}
+
+void mouse::respawn(){
+    srand(time(0));
+    mx = (rand() % 640);
+    my = (rand() % 480);
+    mx = mx - (mx % 60);
+    my = my - (my % 60);
 }
 
 // Draw the mouse on a surface

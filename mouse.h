@@ -12,6 +12,7 @@ public:
     mouse();
     void draw_image(SDL_Surface* surface);
     SDL_Rect get_pos();
+    void respawn();
 private:
     // load in image of the mouse
     SDL_Surface* mmouse;

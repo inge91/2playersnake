@@ -161,13 +161,37 @@ CMakeFiles/2player_snake.dir/mouse.cpp.o.provides: CMakeFiles/2player_snake.dir/
 
 CMakeFiles/2player_snake.dir/mouse.cpp.o.provides.build: CMakeFiles/2player_snake.dir/mouse.cpp.o
 
+CMakeFiles/2player_snake.dir/deadscreen.cpp.o: CMakeFiles/2player_snake.dir/flags.make
+CMakeFiles/2player_snake.dir/deadscreen.cpp.o: ../deadscreen.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/inge/Projects/Games/2player_snake/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/2player_snake.dir/deadscreen.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/2player_snake.dir/deadscreen.cpp.o -c /home/inge/Projects/Games/2player_snake/deadscreen.cpp
+
+CMakeFiles/2player_snake.dir/deadscreen.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2player_snake.dir/deadscreen.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/inge/Projects/Games/2player_snake/deadscreen.cpp > CMakeFiles/2player_snake.dir/deadscreen.cpp.i
+
+CMakeFiles/2player_snake.dir/deadscreen.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2player_snake.dir/deadscreen.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/inge/Projects/Games/2player_snake/deadscreen.cpp -o CMakeFiles/2player_snake.dir/deadscreen.cpp.s
+
+CMakeFiles/2player_snake.dir/deadscreen.cpp.o.requires:
+.PHONY : CMakeFiles/2player_snake.dir/deadscreen.cpp.o.requires
+
+CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides: CMakeFiles/2player_snake.dir/deadscreen.cpp.o.requires
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides.build
+.PHONY : CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides
+
+CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides.build: CMakeFiles/2player_snake.dir/deadscreen.cpp.o
+
 # Object files for target 2player_snake
 2player_snake_OBJECTS = \
 "CMakeFiles/2player_snake.dir/main.cpp.o" \
 "CMakeFiles/2player_snake.dir/playerSnake.cpp.o" \
 "CMakeFiles/2player_snake.dir/sdl_functions.cpp.o" \
 "CMakeFiles/2player_snake.dir/timer.cpp.o" \
-"CMakeFiles/2player_snake.dir/mouse.cpp.o"
+"CMakeFiles/2player_snake.dir/mouse.cpp.o" \
+"CMakeFiles/2player_snake.dir/deadscreen.cpp.o"
 
 # External object files for target 2player_snake
 2player_snake_EXTERNAL_OBJECTS =
@@ -177,6 +201,7 @@ CMakeFiles/2player_snake.dir/mouse.cpp.o.provides.build: CMakeFiles/2player_snak
 2player_snake: CMakeFiles/2player_snake.dir/sdl_functions.cpp.o
 2player_snake: CMakeFiles/2player_snake.dir/timer.cpp.o
 2player_snake: CMakeFiles/2player_snake.dir/mouse.cpp.o
+2player_snake: CMakeFiles/2player_snake.dir/deadscreen.cpp.o
 2player_snake: /usr/lib/x86_64-linux-gnu/libSDLmain.a
 2player_snake: /usr/lib/x86_64-linux-gnu/libSDL.so
 2player_snake: /usr/lib/x86_64-linux-gnu/libSDL_image.so
@@ -195,6 +220,7 @@ CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/playerSnake.
 CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/sdl_functions.cpp.o.requires
 CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/timer.cpp.o.requires
 CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/mouse.cpp.o.requires
+CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/deadscreen.cpp.o.requires
 .PHONY : CMakeFiles/2player_snake.dir/requires
 
 CMakeFiles/2player_snake.dir/clean:

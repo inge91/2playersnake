@@ -17,7 +17,10 @@ public:
     std::vector <SDL_Rect> return_partLocation();
     void make_move(SDL_Event event, SDL_Surface *surface);
     bool wall_collision();
-    void grow_snake(mouse myMouse);
+    bool grow_snake(mouse myMouse);
+    void only_respond(SDL_Event event, SDL_Surface *surface);
+    bool touched_self();
+    void respawn();
 
 private:
     // the image holders
@@ -44,7 +47,7 @@ private:
     std::vector <SDL_Rect>  mparts_locations;
 
     // Stores the clip locations
-    std::vector <SDL_Rect*> mclip_locations;
+    std::vector <SDL_Rect> mclip_locations;
 
     // A vector that keeps track of the direction of all elements of the snake
     std::vector <int> mdirections;

@@ -108,6 +108,30 @@ depend:
 	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/build
 .PHONY : 2player_snake/fast
 
+deadscreen.o: deadscreen.cpp.o
+.PHONY : deadscreen.o
+
+# target to build an object file
+deadscreen.cpp.o:
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/deadscreen.cpp.o
+.PHONY : deadscreen.cpp.o
+
+deadscreen.i: deadscreen.cpp.i
+.PHONY : deadscreen.i
+
+# target to preprocess a source file
+deadscreen.cpp.i:
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/deadscreen.cpp.i
+.PHONY : deadscreen.cpp.i
+
+deadscreen.s: deadscreen.cpp.s
+.PHONY : deadscreen.s
+
+# target to generate assembly for a file
+deadscreen.cpp.s:
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/deadscreen.cpp.s
+.PHONY : deadscreen.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -237,6 +261,9 @@ help:
 	@echo "... 2player_snake"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... deadscreen.o"
+	@echo "... deadscreen.i"
+	@echo "... deadscreen.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
