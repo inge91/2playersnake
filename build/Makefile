@@ -35,6 +35,9 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/inge/Projects/Games/2player_snake
 
@@ -46,8 +49,8 @@ CMAKE_BINARY_DIR = /home/inge/Projects/Games/2player_snake/build
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -107,6 +110,30 @@ depend:
 2player_snake/fast:
 	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/build
 .PHONY : 2player_snake/fast
+
+background.o: background.cpp.o
+.PHONY : background.o
+
+# target to build an object file
+background.cpp.o:
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/background.cpp.o
+.PHONY : background.cpp.o
+
+background.i: background.cpp.i
+.PHONY : background.i
+
+# target to preprocess a source file
+background.cpp.i:
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/background.cpp.i
+.PHONY : background.cpp.i
+
+background.s: background.cpp.s
+.PHONY : background.s
+
+# target to generate assembly for a file
+background.cpp.s:
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/background.cpp.s
+.PHONY : background.cpp.s
 
 deadscreen.o: deadscreen.cpp.o
 .PHONY : deadscreen.o
@@ -261,6 +288,9 @@ help:
 	@echo "... 2player_snake"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... background.o"
+	@echo "... background.i"
+	@echo "... background.s"
 	@echo "... deadscreen.o"
 	@echo "... deadscreen.i"
 	@echo "... deadscreen.s"

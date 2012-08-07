@@ -9,13 +9,12 @@
 #include "deadscreen.h"
 
 using namespace std;
-
+const int FRAMES_PER_SECOND = 8;
 
 int main(int argc, char* args[])
 {
     int frame = 0;
 
-    bool cap = true;
 
     Timer fps;
 
@@ -34,10 +33,10 @@ int main(int argc, char* args[])
     }
 
     // Set up the screen
-    //screen = SDL_SetVideoMode(640, 480, 32,
-    //        SDL_SWSURFACE);
-    screen = SDL_SetVideoMode(1000,700 , 32,
+    screen = SDL_SetVideoMode(640, 480, 32,
             SDL_SWSURFACE);
+    //screen = SDL_SetVideoMode(1000,700 , 32,
+    //        SDL_SWSURFACE);
     // Check for errors
     if(screen == NULL){
         return 1;
@@ -47,7 +46,7 @@ int main(int argc, char* args[])
     SDL_WM_SetCaption("2Player Snake", NULL);
 
     // Load picture into background image
-    background= SDL_LoadBMP("../imgs/background.bmp");
+    background= load_image("../imgs/background.bmp");
 
 
 
@@ -71,16 +70,7 @@ int main(int argc, char* args[])
         int x,y;
         if(!mySnake.touched_self()&& !mySnake.wall_collision(screen))
         {
-            for(x = 0; x < 2000; x++)
-            {
-                for(y = 0; y < 20000; y++)
-                {
-                 // mySnake.only_respond(event, background);
 
-                //  myMouse.draw_image(screen);
-
-                }
-            }
             // while there is an event to handle
             fill_background(background, screen);
             myMouse.draw_image(screen);
@@ -126,12 +116,7 @@ int main(int argc, char* args[])
 
         while(SDL_PollEvent(&event)){
             frame++;
-            //If we want to cap the frame rate
-            if( ( cap == true ) && ( fps.get_ticks() < 1000 / 20 ) )
-            {
-               //Sleep the remaining frame time
-               SDL_Delay( ( 1000 / 20 ) - fps.get_ticks() );
-            }
+
             if(event.type == SDL_QUIT)
             {
 

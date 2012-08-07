@@ -6,19 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/inge/Projects/Games/2player_snake/deadscreen.h
-vector
--
-SDL/SDL.h
-/home/inge/Projects/Games/2player_snake/SDL/SDL.h
-SDL/SDL_image.h
-/home/inge/Projects/Games/2player_snake/SDL/SDL_image.h
-SDL/SDL_ttf.h
-/home/inge/Projects/Games/2player_snake/SDL/SDL_ttf.h
-sdl_functions.h
-/home/inge/Projects/Games/2player_snake/sdl_functions.h
-
-/home/inge/Projects/Games/2player_snake/main.cpp
+/home/inge/Projects/Games/2player_snake/mouse.h
 iostream
 -
 SDL/SDL.h
@@ -29,26 +17,10 @@ SDL/SDL_ttf.h
 /home/inge/Projects/Games/2player_snake/SDL/SDL_ttf.h
 sdl_functions.h
 /home/inge/Projects/Games/2player_snake/sdl_functions.h
+
+/home/inge/Projects/Games/2player_snake/playerSnake.cpp
 playerSnake.h
 /home/inge/Projects/Games/2player_snake/playerSnake.h
-timer.h
-/home/inge/Projects/Games/2player_snake/timer.h
-mouse.h
-/home/inge/Projects/Games/2player_snake/mouse.h
-deadscreen.h
-/home/inge/Projects/Games/2player_snake/deadscreen.h
-
-/home/inge/Projects/Games/2player_snake/mouse.h
-iostream
--
-SDL/SDL.h
-/home/inge/Projects/Games/2player_snake/SDL/SDL.h
-SDL/SDL_image.h
-/home/inge/Projects/Games/2player_snake/SDL/SDL_image.h
-SDL/SDL_ttf.h
-/home/inge/Projects/Games/2player_snake/SDL/SDL_ttf.h
-sdl_functions.h
-/home/inge/Projects/Games/2player_snake/sdl_functions.h
 
 /home/inge/Projects/Games/2player_snake/playerSnake.h
 vector
@@ -73,8 +45,4 @@ SDL/SDL_image.h
 /home/inge/Projects/Games/2player_snake/SDL/SDL_image.h
 SDL/SDL_ttf.h
 /home/inge/Projects/Games/2player_snake/SDL/SDL_ttf.h
-
-/home/inge/Projects/Games/2player_snake/timer.h
-SDL/SDL.h
-/home/inge/Projects/Games/2player_snake/SDL/SDL.h
 

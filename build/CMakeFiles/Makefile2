@@ -43,6 +43,9 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/inge/Projects/Games/2player_snake
 
@@ -56,7 +59,7 @@ CMAKE_BINARY_DIR = /home/inge/Projects/Games/2player_snake/build
 CMakeFiles/2player_snake.dir/all:
 	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/depend
 	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/inge/Projects/Games/2player_snake/build/CMakeFiles  1 2 3 4 5 6
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/inge/Projects/Games/2player_snake/build/CMakeFiles  1 2 3 4 5 6 7
 	@echo "Built target 2player_snake"
 .PHONY : CMakeFiles/2player_snake.dir/all
 
@@ -66,7 +69,7 @@ all: CMakeFiles/2player_snake.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/2player_snake.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/inge/Projects/Games/2player_snake/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/inge/Projects/Games/2player_snake/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/2player_snake.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/inge/Projects/Games/2player_snake/build/CMakeFiles 0
 .PHONY : CMakeFiles/2player_snake.dir/rule

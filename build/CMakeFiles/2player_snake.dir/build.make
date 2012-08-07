@@ -31,6 +31,9 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
 CMAKE_SOURCE_DIR = /home/inge/Projects/Games/2player_snake
 
@@ -184,6 +187,29 @@ CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides: CMakeFiles/2player_snake
 
 CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides.build: CMakeFiles/2player_snake.dir/deadscreen.cpp.o
 
+CMakeFiles/2player_snake.dir/background.cpp.o: CMakeFiles/2player_snake.dir/flags.make
+CMakeFiles/2player_snake.dir/background.cpp.o: ../background.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/inge/Projects/Games/2player_snake/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/2player_snake.dir/background.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/2player_snake.dir/background.cpp.o -c /home/inge/Projects/Games/2player_snake/background.cpp
+
+CMakeFiles/2player_snake.dir/background.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2player_snake.dir/background.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/inge/Projects/Games/2player_snake/background.cpp > CMakeFiles/2player_snake.dir/background.cpp.i
+
+CMakeFiles/2player_snake.dir/background.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2player_snake.dir/background.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/inge/Projects/Games/2player_snake/background.cpp -o CMakeFiles/2player_snake.dir/background.cpp.s
+
+CMakeFiles/2player_snake.dir/background.cpp.o.requires:
+.PHONY : CMakeFiles/2player_snake.dir/background.cpp.o.requires
+
+CMakeFiles/2player_snake.dir/background.cpp.o.provides: CMakeFiles/2player_snake.dir/background.cpp.o.requires
+	$(MAKE) -f CMakeFiles/2player_snake.dir/build.make CMakeFiles/2player_snake.dir/background.cpp.o.provides.build
+.PHONY : CMakeFiles/2player_snake.dir/background.cpp.o.provides
+
+CMakeFiles/2player_snake.dir/background.cpp.o.provides.build: CMakeFiles/2player_snake.dir/background.cpp.o
+
 # Object files for target 2player_snake
 2player_snake_OBJECTS = \
 "CMakeFiles/2player_snake.dir/main.cpp.o" \
@@ -191,7 +217,8 @@ CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides.build: CMakeFiles/2player
 "CMakeFiles/2player_snake.dir/sdl_functions.cpp.o" \
 "CMakeFiles/2player_snake.dir/timer.cpp.o" \
 "CMakeFiles/2player_snake.dir/mouse.cpp.o" \
-"CMakeFiles/2player_snake.dir/deadscreen.cpp.o"
+"CMakeFiles/2player_snake.dir/deadscreen.cpp.o" \
+"CMakeFiles/2player_snake.dir/background.cpp.o"
 
 # External object files for target 2player_snake
 2player_snake_EXTERNAL_OBJECTS =
@@ -202,11 +229,12 @@ CMakeFiles/2player_snake.dir/deadscreen.cpp.o.provides.build: CMakeFiles/2player
 2player_snake: CMakeFiles/2player_snake.dir/timer.cpp.o
 2player_snake: CMakeFiles/2player_snake.dir/mouse.cpp.o
 2player_snake: CMakeFiles/2player_snake.dir/deadscreen.cpp.o
-2player_snake: /usr/lib/x86_64-linux-gnu/libSDLmain.a
-2player_snake: /usr/lib/x86_64-linux-gnu/libSDL.so
-2player_snake: /usr/lib/x86_64-linux-gnu/libSDL_image.so
-2player_snake: /usr/lib/x86_64-linux-gnu/libSDL_ttf.so
+2player_snake: CMakeFiles/2player_snake.dir/background.cpp.o
 2player_snake: CMakeFiles/2player_snake.dir/build.make
+2player_snake: /usr/lib/libSDLmain.a
+2player_snake: /usr/lib/libSDL.so
+2player_snake: /usr/lib/libSDL_image.so
+2player_snake: /usr/lib/libSDL_ttf.so
 2player_snake: CMakeFiles/2player_snake.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable 2player_snake"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/2player_snake.dir/link.txt --verbose=$(VERBOSE)
@@ -221,6 +249,7 @@ CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/sdl_function
 CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/timer.cpp.o.requires
 CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/mouse.cpp.o.requires
 CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/deadscreen.cpp.o.requires
+CMakeFiles/2player_snake.dir/requires: CMakeFiles/2player_snake.dir/background.cpp.o.requires
 .PHONY : CMakeFiles/2player_snake.dir/requires
 
 CMakeFiles/2player_snake.dir/clean:

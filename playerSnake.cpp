@@ -177,7 +177,7 @@ void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
 // Detects if the snake has collided with a wall.
 bool playerSnake::wall_collision(SDL_Surface* screen){
     SDL_Rect head = mparts_locations.at(0);
-    if(head.x < 0 || head.y < 0 || head.w > screen->w || head.h > screen->h){
+    if(head.x < 0 || head.y < 0 || head.x+ head.w > screen->w || head.y + head.h > screen->h){
         return true;
     }
     else{

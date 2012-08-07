@@ -25,12 +25,11 @@
          <Option compiler="gcc" />
          <Compiler>
             <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.6" />
-            <Add directory="/usr/include/c++/4.6/backward" />
-            <Add directory="/usr/include/c++/4.6/x86_64-linux-gnu/." />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/../../../../include/c++/4.7.1" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/../../../../include/c++/4.7.1/backward" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/../../../../include/c++/4.7.1/i686-pc-linux-gnu" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/include" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/include-fixed" />
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
@@ -48,12 +47,11 @@
          <Option compiler="gcc" />
          <Compiler>
             <Add directory="/usr/include" />
-            <Add directory="/usr/include/c++/4.6" />
-            <Add directory="/usr/include/c++/4.6/backward" />
-            <Add directory="/usr/include/c++/4.6/x86_64-linux-gnu/." />
-            <Add directory="/usr/include/x86_64-linux-gnu" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include" />
-            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/../../../../include/c++/4.7.1" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/../../../../include/c++/4.7.1/backward" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/../../../../include/c++/4.7.1/i686-pc-linux-gnu" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/include" />
+            <Add directory="/usr/lib/gcc/i686-pc-linux-gnu/4.7.1/include-fixed" />
             <Add directory="/usr/local/include" />
          </Compiler>
          <MakeCommands>
@@ -74,6 +72,8 @@
          </MakeCommands>
       </Target>
       </Build>
+      <Unit filename="/home/inge/Projects/Games/2player_snake/background.cpp">
+      </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/deadscreen.cpp">
       </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/main.cpp">
@@ -85,6 +85,8 @@
       <Unit filename="/home/inge/Projects/Games/2player_snake/sdl_functions.cpp">
       </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/timer.cpp">
+      </Unit>
+      <Unit filename="/home/inge/Projects/Games/2player_snake/background.h">
       </Unit>
       <Unit filename="/home/inge/Projects/Games/2player_snake/deadscreen.h">
       </Unit>
