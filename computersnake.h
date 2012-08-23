@@ -1,5 +1,5 @@
-#ifndef PLAYERSNAKE_H
-#define PLAYERSNAKE_H
+#ifndef COMPUTERSNAKE_H
+#define COMPUTERSNAKE_H
 #include <iostream>
 #include <vector>
 #include "SDL/SDL.h"
@@ -7,20 +7,17 @@
 #include "SDL/SDL_ttf.h"
 #include "sdl_functions.h"
 #include "mouse.h"
-
-using namespace std;
-
-class playerSnake
+class computerSnake
 {
 public:
-    playerSnake();
+    computerSnake(SDL_Surface *surface);
     std::vector <SDL_Rect> return_partLocation();
     void make_move(SDL_Event event, SDL_Surface *surface);
     bool wall_collision(SDL_Surface* screen);
     bool grow_snake(mouse myMouse);
     void only_respond(SDL_Event event, SDL_Surface *surface);
     bool touched_self();
-    void respawn();
+    void respawn(SDL_Surface *surface);
 
 private:
     // the image holders
@@ -57,4 +54,4 @@ private:
 
 };
 
-#endif // PLAYERSNAKE_H
+#endif // COMPUTERSNAKE_H

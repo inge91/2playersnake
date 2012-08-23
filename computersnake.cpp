@@ -1,16 +1,11 @@
-#include "playerSnake.h"
+#include "computersnake.h"
 
-// This is the class for the snake controlled by the player
-// TODO:write a cleanup function that releases all the images
-
-// TODO: make an abstract method which creates an instant of the mouse in the constructor and after that
-// Constructor
-playerSnake::playerSnake()
+computerSnake::computerSnake(SDL_Surface* surface)
 {
-    // Load initial images of playerSnake and sets position of head and tail
-    mHead = load_image("../imgs/playersnake/head.bmp");
-    mBody = load_image("../imgs/playersnake/body.bmp");
-    mTail = load_image("../imgs/playersnake/tail.bmp");
+   // Load initial images of computerSnake and sets position of head and tail
+    mHead = load_image("../imgs/computersnake/head.bmp");
+    mBody = load_image("../imgs/computersnake/body.bmp");
+    mTail = load_image("../imgs/computersnake/tail.bmp");
 
     SDL_Rect first;
     SDL_Rect second;
@@ -47,13 +42,15 @@ playerSnake::playerSnake()
     mclip_locations.insert(mclip_locations.begin() + 2, third);
     mclip_locations.insert(mclip_locations.begin() + 3, fourth);
 
-    respawn();
+    respawn(surface);
 }
 
 // Drawing the snake on a surface
-void playerSnake::draw_snake(SDL_Surface* surface){
-    int size = mparts_locations.size();
+void computerSnake::draw_snake(SDL_Surface* surface){
 
+    int size = mparts_locations.size();
+    std::cout<<size;
+    std::cout<<"\n";
     SDL_Rect loc;
     int dir;
     //first draw the head
@@ -85,14 +82,14 @@ void playerSnake::draw_snake(SDL_Surface* surface){
 // Listens for a move and performs it.
 // if a new move in a direction is made, go that way, else
 // move the same direction as you did last.
-void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
+void computerSnake::make_move(SDL_Event event, SDL_Surface* surface){
     SDL_Rect loc;
 
 
     //Set the proper consequence
     switch( event.key.keysym.sym )
     {
-    case SDLK_UP:
+    case SDLK_w:
         loc = mparts_locations.at(0);
         loc.y = loc.y - 30;
         mparts_locations.insert(mparts_locations.begin(), loc);
@@ -100,7 +97,7 @@ void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
         mlast_press = UP;
         break;
 
-    case SDLK_DOWN:
+    case SDLK_s:
         loc = mparts_locations.at(0);
         loc.y = loc.y + 30;
         mparts_locations.insert(mparts_locations.begin(), loc);
@@ -108,7 +105,7 @@ void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
         mlast_press = DOWN;
         break;
 
-    case SDLK_LEFT:
+    case SDLK_a:
         loc = mparts_locations.at(0);
         loc.x = loc.x - 30;
         mparts_locations.insert(mparts_locations.begin(), loc);
@@ -116,7 +113,7 @@ void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
         mlast_press = LEFT;
         break;
 
-    case SDLK_RIGHT:
+    case SDLK_d:
 
         loc = mparts_locations.at(0);
         loc.x = loc.x + 30;
@@ -162,7 +159,7 @@ void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
         mparts_locations.erase(mparts_locations.begin()+ mparts_locations.size()-1);
 
         mdirections.erase(mdirections.begin()+ mdirections.size()-1);
-        mIsGrowing = true;
+
     }
     // draw the snake
     draw_snake(surface);
@@ -170,7 +167,7 @@ void playerSnake::make_move(SDL_Event event, SDL_Surface* surface){
 }
 
 // Detects if the snake has collided with a wall.
-bool playerSnake::wall_collision(SDL_Surface* screen){
+bool computerSnake::wall_collision(SDL_Surface* screen){
     SDL_Rect head = mparts_locations.at(0);
     if(head.x < 0 || head.y < 0 || head.x+ head.w > screen->w || head.y + head.h > screen->h){
         return true;
@@ -181,7 +178,7 @@ bool playerSnake::wall_collision(SDL_Surface* screen){
 }
 
 // Touched the mouse?
-bool playerSnake::touched_mouse(mouse myMouse){
+bool computerSnake::touched_mouse(mouse myMouse){
     SDL_Rect mouseLoc =myMouse.get_pos();
     SDL_Rect head = mparts_locations.at(0);
 
@@ -189,7 +186,7 @@ bool playerSnake::touched_mouse(mouse myMouse){
 }
 
 // sets mISGrowing depending on if the mouse is catched
-bool playerSnake::grow_snake(mouse myMouse){
+bool computerSnake::grow_snake(mouse myMouse){
     if(touched_mouse(myMouse)){
         mIsGrowing = true;
         return true;
@@ -202,7 +199,7 @@ bool playerSnake::grow_snake(mouse myMouse){
 }
 
 // While in sleep should still respond to keypresses
-void playerSnake::only_respond(SDL_Event event, SDL_Surface *surface){
+void computerSnake::only_respond(SDL_Event event, SDL_Surface *surface){
     SDL_Rect loc;
     //If a key was pressed
     if( event.type == SDL_KEYDOWN )
@@ -263,7 +260,7 @@ void playerSnake::only_respond(SDL_Event event, SDL_Surface *surface){
 }
 
 // Checks if the snake has bitten itself
-bool playerSnake::touched_self(){
+bool computerSnake::touched_self(){
     // Locate position of the head
     SDL_Rect locHead = mparts_locations.at(0);
     SDL_Rect part;
@@ -278,32 +275,33 @@ bool playerSnake::touched_self(){
     return false;
 }
 
-void playerSnake::respawn(){
+void computerSnake::respawn(SDL_Surface* surface){
     mparts_locations.clear();
     mdirections.clear();
-    // Give the begin location of playerSnake
+    // Give the begin location of computerSnake
     SDL_Rect headLoc;
     SDL_Rect tailLoc;
-    headLoc.x = 45;
-    headLoc.y = 15;
+    headLoc.x = surface->w - 100;
+    headLoc.y = surface->h - 75;
     headLoc.w = mHead->w/2;
     headLoc.h = mHead->h/2;
-    tailLoc.x = 15;
-    tailLoc.y = 15;
+    tailLoc.x = surface->w - 75;
+    tailLoc.y = surface->h - 75;
     tailLoc.w = mHead->w/2;
     tailLoc.h = mHead->h/2;
     mparts_locations.insert(mparts_locations.begin(), tailLoc);
     // Head gets on the front
     mparts_locations.insert(mparts_locations.begin(), headLoc);
 
-    mdirections.insert(mdirections.begin(), RIGHT);
-    mdirections.insert(mdirections.begin(), RIGHT);
+    mdirections.insert(mdirections.begin(), LEFT);
+    mdirections.insert(mdirections.begin(), LEFT);
 
     mlast_press = NONE;
 }
 
 
 // Returns the location of all parts
-std::vector <SDL_Rect> playerSnake::return_partLocation(){
+std::vector <SDL_Rect> computerSnake::return_partLocation(){
     return mparts_locations;
 }
+

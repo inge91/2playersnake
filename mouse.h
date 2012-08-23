@@ -9,10 +9,10 @@
 class mouse
 {
 public:
-    mouse();
+    mouse(SDL_Surface *screen);
     void draw_image(SDL_Surface* surface);
     SDL_Rect get_pos();
-    void respawn();
+    void respawn(SDL_Surface *surface);
 private:
     // load in image of the mouse
     SDL_Surface* mmouse;

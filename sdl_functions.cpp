@@ -14,11 +14,11 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination,
 }
 
 // Fill the background using input image
-void fill_background(SDL_Surface* the_background, SDL_Surface* the_screen)
+void fill_background(SDL_Surface* the_background, SDL_Surface* the_screen,int offset_x = 0,int offset_y = 0)
 {
-    for (int i = 0; i < the_screen->w; i += the_background->w)
+    for (int i = offset_x; i < the_screen->w - offset_x; i += the_background->w)
     {
-        for (int j = 0; j < the_screen->h; j += the_background->h)
+        for (int j = offset_y; j < the_screen->h - offset_y; j += the_background->h)
         {
             apply_surface(i,j,the_background, the_screen);
         }
@@ -35,7 +35,6 @@ SDL_Surface *load_image( std::string filename )
 
     //Load the image
     loadedImage = IMG_Load( filename.c_str() );
-
 
     //If the image loaded
     if( loadedImage != NULL )
@@ -58,6 +57,7 @@ SDL_Surface *load_image( std::string filename )
         return optimizedImage;
     }
 
+    return loadedImage;
 
 }
 

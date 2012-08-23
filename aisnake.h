@@ -1,5 +1,5 @@
-#ifndef PLAYERSNAKE_H
-#define PLAYERSNAKE_H
+#ifndef AISNAKE_H
+#define AISNAKE_H
 #include <iostream>
 #include <vector>
 #include "SDL/SDL.h"
@@ -7,21 +7,11 @@
 #include "SDL/SDL_ttf.h"
 #include "sdl_functions.h"
 #include "mouse.h"
-
-using namespace std;
-
-class playerSnake
+class aiSnake
 {
 public:
-    playerSnake();
-    std::vector <SDL_Rect> return_partLocation();
-    void make_move(SDL_Event event, SDL_Surface *surface);
-    bool wall_collision(SDL_Surface* screen);
-    bool grow_snake(mouse myMouse);
-    void only_respond(SDL_Event event, SDL_Surface *surface);
-    bool touched_self();
-    void respawn();
-
+    aiSnake(SDL_Surface *surface);
+    void respawn(SDL_Surface *surface);
 private:
     // the image holders
     SDL_Surface*  mHead;
@@ -37,11 +27,7 @@ private:
         LEFT,
         NONE
     };
-
     int mlast_press;
-
-    // Tracks if the snake is supposed to grow
-    bool mIsGrowing;
 
     // Stores all the bodypart locations of the playersnake
     std::vector <SDL_Rect>  mparts_locations;
@@ -52,9 +38,6 @@ private:
     // A vector that keeps track of the direction of all elements of the snake
     std::vector <int> mdirections;
 
-    void draw_snake(SDL_Surface* surface);
-    bool touched_mouse(mouse myMouse);
-
 };
 
-#endif // PLAYERSNAKE_H
+#endif // AISNAKE_H

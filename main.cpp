@@ -7,20 +7,23 @@
 #include "timer.h"
 #include "mouse.h"
 #include "deadscreen.h"
+#include "background.h"
+#include "programloop.h"
 
 using namespace std;
-const int FRAMES_PER_SECOND = 8;
+//const int FRAMES_PER_SECOND = 8;
 
 int main(int argc, char* args[])
 {
-    int frame = 0;
+    programLoop myLoop;
 
-
+    myLoop.run();
+/*
     Timer fps;
 
     //The background images
     SDL_Surface* screen = NULL;
-    SDL_Surface* background = NULL;
+    //SDL_Surface* background = NULL;
 
     // Stores the event data
     SDL_Event event;
@@ -33,7 +36,7 @@ int main(int argc, char* args[])
     }
 
     // Set up the screen
-    screen = SDL_SetVideoMode(640, 480, 32,
+    screen = SDL_SetVideoMode(630, 450, 32,
             SDL_SWSURFACE);
     //screen = SDL_SetVideoMode(1000,700 , 32,
     //        SDL_SWSURFACE);
@@ -46,16 +49,19 @@ int main(int argc, char* args[])
     SDL_WM_SetCaption("2Player Snake", NULL);
 
     // Load picture into background image
-    background= load_image("../imgs/background.bmp");
+    //background= load_image("../imgs/background.bmp");
 
+    background myBackground;
 
+    //fill_background(background, screen, 0, 0);
+    myBackground.apply_background(screen);
 
-    fill_background(background, screen);
 
     // Create an instance of the playersnake
     playerSnake mySnake;
     mouse myMouse;
     deadScreen myDead(screen);
+
 
 
     // Updating the screen
@@ -67,12 +73,13 @@ int main(int argc, char* args[])
     bool quit = false;
     while( quit == false){
         fps.start();
-        int x,y;
+
         if(!mySnake.touched_self()&& !mySnake.wall_collision(screen))
         {
 
             // while there is an event to handle
-            fill_background(background, screen);
+            //fill_background(background, screen,0,0);
+            myBackground.apply_background(screen);
             myMouse.draw_image(screen);
             mySnake.make_move(event, screen);
             myMouse.draw_image(screen);
@@ -115,7 +122,7 @@ int main(int argc, char* args[])
 
 
         while(SDL_PollEvent(&event)){
-            frame++;
+
 
             if(event.type == SDL_QUIT)
             {
@@ -125,17 +132,23 @@ int main(int argc, char* args[])
             }
 
         }
+        //If we want to cap the frame rate
+            if( ( fps.get_ticks() < 1000 / FRAMES_PER_SECOND ) )
+            {
+                //Sleep the remaining frame time
+                SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - fps.get_ticks() );
+            }
 
     }
 
 
     // The cleanup
-    SDL_FreeSurface(
-            background);
+    //SDL_FreeSurface(background);
     SDL_Quit();
 
     return
         0;
+        */
 }
 
 

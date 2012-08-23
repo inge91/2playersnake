@@ -4,13 +4,15 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
+#include "sdl_functions.h"
 
 class background
 {
 public:
     background();
+    void apply_background(SDL_Surface* screen);
 private:
-    SDL_Surface* background_tile;
+    SDL_Surface* background_tile ;
     SDL_Surface* background_corner_ul;
     SDL_Surface* background_corner_ur;
     SDL_Surface* background_corner_dr;
